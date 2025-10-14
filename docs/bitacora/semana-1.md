@@ -21,3 +21,4 @@
 ## PRs (sugeridos)
 - #1 CI inicial (Sebastián)
 - #2 Auth Breeze/Livewire (Julio César)
+* 2025-10-14 10:00:00 - Sebastian - feat(setup): inicializar proyecto Laravel 11
