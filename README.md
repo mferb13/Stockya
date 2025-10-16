@@ -1,3 +1,5 @@
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/4d125001-0568-4315-b64d-2fd1879a5804" />
+
 # StockYa - Sistema de Inventario y Pedidos
 
 ## Descripción
