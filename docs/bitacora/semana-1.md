@@ -23,3 +23,4 @@
 - #2 Auth Breeze/Livewire (Julio César)
 * 2025-10-14 10:00:00 - Sebastian - feat(setup): inicializar proyecto Laravel 11
 * 2025-10-16 15:30:00 - Juan Pablo - chore(env): agregar .env ejemplo y config DB
+* 2025-10-18 18:45:00 - Mafe - feat(ui): layout base con Blade/Tailwind
