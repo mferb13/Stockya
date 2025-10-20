@@ -24,3 +24,4 @@
 * 2025-10-14 10:00:00 - Sebastian - feat(setup): inicializar proyecto Laravel 11
 * 2025-10-16 15:30:00 - Juan Pablo - chore(env): agregar .env ejemplo y config DB
 * 2025-10-18 18:45:00 - Mafe - feat(ui): layout base con Blade/Tailwind
+* 2025-10-19 20:10:00 - Julio Cesar - feat(auth): instalar Breeze + Livewire (login/registro)
