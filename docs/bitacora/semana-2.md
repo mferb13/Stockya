@@ -21,3 +21,4 @@
 ## PRs (sugeridos)
 - #3 CRUD Productos (Juan Pablo)
 - #4 Seeders iniciales (Julio César)
+* 2025-10-21 10:10:00 - Sebastian - feat(productos): modelo + migraciÃ³n Producto
