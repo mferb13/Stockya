@@ -24,3 +24,4 @@
 * 2025-10-21 10:10:00 - Sebastian - feat(productos): modelo + migraciÃ³n Producto
 * 2025-10-23 16:00:00 - Juan Pablo - feat(productos): CRUD Livewire (listar/crear/editar/eliminar)
 * 2025-10-24 19:20:00 - Mafe - feat(ui): vistas de productos (listado y formularios)
+* 2025-10-26 21:00:00 - Julio Cesar - seed(db): datos de prueba para inventario
