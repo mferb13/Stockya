@@ -20,3 +20,4 @@
 ## PRs (sugeridos)
 - #5 Movimientos de stock (Sebastián)
 - #6 Reportes y export (Mafe)
+* 2025-10-28 09:30:00 - Sebastian - feat(stock): modelo MovimientoStock y lÃ³gica entradas/salidas
