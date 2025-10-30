@@ -21,3 +21,4 @@
 - #5 Movimientos de stock (Sebastián)
 - #6 Reportes y export (Mafe)
 * 2025-10-28 09:30:00 - Sebastian - feat(stock): modelo MovimientoStock y lÃ³gica entradas/salidas
+* 2025-10-30 14:15:00 - Juan Pablo - feat(stock): UI registro de movimientos
