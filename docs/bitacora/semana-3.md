@@ -22,3 +22,4 @@
 - #6 Reportes y export (Mafe)
 * 2025-10-28 09:30:00 - Sebastian - feat(stock): modelo MovimientoStock y lÃ³gica entradas/salidas
 * 2025-10-30 14:15:00 - Juan Pablo - feat(stock): UI registro de movimientos
+* 2025-11-01 17:50:00 - Mafe - feat(reports): reportes por fecha/categorÃ­a + export CSV
