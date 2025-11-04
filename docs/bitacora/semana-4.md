@@ -21,3 +21,4 @@
 ## PRs (sugeridos)
 - #7 Optimización y seguridad
 - #8 Documentación final
+* 2025-11-04 10:05:00 - Sebastian - fix(authz): policies y middlewares de seguridad
