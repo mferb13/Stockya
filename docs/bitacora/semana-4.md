@@ -23,3 +23,4 @@
 - #8 Documentación final
 * 2025-11-04 10:05:00 - Sebastian - fix(authz): policies y middlewares de seguridad
 * 2025-11-06 15:25:00 - Juan Pablo - perf(app): optimizar consultas con eager loading
+* 2025-11-08 19:35:00 - Mafe - style(ui): ajustes responsive y pulido final
