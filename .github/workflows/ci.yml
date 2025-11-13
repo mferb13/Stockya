@@ -17,6 +17,7 @@ jobs:
         with:
           php-version: '8.2'
           extensions: mbstring, intl, pdo, sqlite, pdo_sqlite, bcmath, fileinfo
+          coverage: none
 
       - name: Cache Composer
         uses: actions/cache@v4
@@ -25,10 +26,10 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
-      - name: Install dependencies
+      - name: Composer install
         run: composer install --no-interaction --prefer-dist --no-progress
 
-      - name: Prepare environment
+      - name: Prepare .env (SQLite)
         run: |
           cp .env.example .env
           php artisan key:generate
@@ -36,7 +37,32 @@ jobs:
           rm -f database/database.sqlite
           touch database/database.sqlite
           sed -i 's/^DB_CONNECTION=.*/DB_CONNECTION=sqlite/' .env
-          sed -i 's/^DB_DATABASE=.*/DB_DATABASE=database\/database.sqlite/' .env
+          sed -i 's|^DB_DATABASE=.*|DB_DATABASE=database/database.sqlite|' .env
+
+      # 🔽 BLOQUE NUEVO: Node + Vite build (requerido para generar public/build/manifest.json)
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Cache Node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - name: Install Node deps
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+          fi
+
+      - name: Build assets with Vite
+        run: |
+          if [ -f package.json ]; then
+            npm run build
+          fi
 
       - name: Run migrations
         run: php artisan migrate --force
