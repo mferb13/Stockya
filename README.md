@@ -112,19 +112,40 @@ StockYa es un sistema integral de inventario y pedidos diseñado para gestionar 
 
 ## Problemas Resueltos
 
-1. **Gestión de Inventario Ineficiente** → Alertas automáticas y actualización en tiempo real
-2. **Procesos Manuales en Pedidos** → Catálogo digital y validación automática
+1. **Gestión de Inventario Ineficiente** → Alertas automáticas y actualización en tiempo real  
+2. **Procesos Manuales en Pedidos** → Catálogo digital y validación automática  
 3. **Administración de Nóminas Propensa a Errores** → Generación automática de comprobantes
 
 ## Documentación Adicional
 
 - [Diagramas BPMN](https://lucid.app/lucidchart/f0f7cef6-60e3-4813-a896-137d2d808ded/edit)
-- Casos de uso detallados
-- Diagramas de secuencia
-- Diagrama de clases
-- Mockups de interfaz
+- Casos de uso detallados  
+- Diagramas de secuencia  
+- Diagrama de clases  
+- Mockups de interfaz  
 
 ---
 
 *Sistema desarrollado para optimizar la gestión de negocios de distribución y venta al por mayor.*
 
+---
+
+# 📘 Bitácora Semanal del Proyecto
+
+Este repositorio incluye una **bitácora completa del trabajo realizado durante 4 semanas**, donde cada actividad está registrada con fecha y autor.
+
+Puedes consultar cada semana aquí:
+
+- 📅 **[Semana 1](./docs/bitacora/semana-1.md)** – Configuración inicial, entorno, layout base, autenticación  
+- 📅 **[Semana 2](./docs/bitacora/semana-2.md)** – CRUD de productos, vistas, datos de prueba  
+- 📅 **[Semana 3](./docs/bitacora/semana-3.md)** – Módulo de inventario, movimientos, reportes  
+- 📅 **[Semana 4](./docs/bitacora/semana-4.md)** – Seguridad, optimización, diseño final y documentación  
+
+### Equipo de Desarrollo
+
+- **Sebastián**  
+- **Juan Pablo**  
+- **Mafe**  
+- **Julio César**
+
+Cada commit refleja tareas realizadas semanalmente a lo largo del desarrollo del sistema.
