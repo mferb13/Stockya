@@ -1,0 +1,92 @@
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+
+.header-vendedor {
+    display:flex; justify-content:space-between; align-items:center;
+    background-color:#FF5722; color:white; padding:10px 20px;
+}
+
+.header-vendedor .logo { display:flex; align-items:center; }
+.header-vendedor .logo img { width:50px; height:50px; object-fit:contain; margin-right:10px; }
+.header-vendedor .logo h2 { font-size:1.2rem; }
+
+.nav-vendedor a { color:white; text-decoration:none; margin:0 10px; padding:5px 10px; border-radius:6px; transition:0.3s; }
+.nav-vendedor a:hover { background-color:#e64a19; }
+
+.logout-form .boton-salir {
+    background-color:white; color:#FF5722; border:none; padding:5px 10px; border-radius:6px; font-weight:bold; cursor:pointer; transition:0.3s;
+}
+.logout-form .boton-salir:hover { background-color:#f2f2f2; }
+
+.contenido { max-width:1200px; margin:2rem auto; padding:0 20px; background-color:#f8f8f8; border-radius:6px; }
+
+#buscar-producto { width:100%; padding:10px; margin-bottom:15px; border-radius:6px; border:1px solid #ccc; }
+
+.productos-disponibles { margin-bottom:15px; }
+.producto-item { display:flex; justify-content:space-between; align-items:center; padding:5px 10px; border:1px solid #ccc; border-radius:6px; margin-bottom:5px; background:#fff; }
+.producto-item button { background-color:#FF5722; color:white; border:none; padding:3px 8px; border-radius:6px; cursor:pointer; transition:0.3s; }
+.producto-item button:hover { background-color:#e64a19; }
+
+.tabla-productos { width:100%; border-collapse:collapse; }
+.tabla-productos th, .tabla-productos td { border:1px solid #ccc; padding:10px; text-align:center; }
+.tabla-productos th { background-color:#FF5722; color:white; }
+.tabla-productos input { width:60px; padding:5px; text-align:center; }
+button { cursor:pointer; }
+
+/* ===== SECCIÓN PAGO ===== */
+.seccion-pago {
+    background-color: #fff8f5;
+    border: 2px solid #FF5722;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    margin-top: 2rem;
+    max-width: 400px;
+}
+
+.seccion-pago h3 {
+    color: #FF5722;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.pago-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.pago-row label {
+    font-weight: bold;
+    color: #333;
+}
+
+.pago-row input {
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 150px;
+    text-align: right;
+}
+
+.total-pago, .cambio {
+    font-weight: bold;
+    color: #FF5722;
+}
+
+.boton-finalizar {
+    background-color: #FF5722;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 1rem;
+}
+
+.boton-finalizar:hover {
+    background-color: #e64a19;
+}
