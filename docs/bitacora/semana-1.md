@@ -8,7 +8,7 @@
 ### Juan Pablo
 - Configurar migraciones iniciales y conexión a BD.
 ### Mafe
-- Layout principal, estilos base (Blade + Tailwind).
+- Layout principal, estilos base, se uso plantillas y estilos bases de estructuras recomendadas, usnado laravel con blade en la parte de plantillas mientras que los estilos usando Tailwind .
 ### Julio César
 - Autenticación con Breeze + Livewire (login/registro).
 
