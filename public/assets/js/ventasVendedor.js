@@ -30,58 +30,74 @@ function filtrarProductos() {
     divProductos.style.display = filtrados.length && query ? 'block' : 'none';
 }
 
-inputBuscar.addEventListener('blur', () => {
-    setTimeout(() => { divProductos.style.display = 'none'; }, 150);
+// Cerrar el dropdown si se hace click fuera
+document.addEventListener('click', function(e) {
+    if (!divProductos.contains(e.target) && e.target !== inputBuscar) {
+        divProductos.style.display = 'none';
+    }
 });
 
 // Agregar producto a la venta
 function agregarProducto(nombre, precio) {
     const tabla = document.getElementById('tabla-ventas');
 
+    // Si ya existe en la tabla, solo aumentar cantidad
     for (let fila of tabla.rows) {
         if (fila.cells[0].textContent === nombre) {
-            fila.querySelector('input').value = parseInt(fila.querySelector('input').value) + 1;
-            actualizarTotal(fila.querySelector('input'));
+            const inputCantidad = fila.querySelector('input');
+            inputCantidad.value = parseInt(inputCantidad.value) + 1;
+            actualizarTotal(inputCantidad);
             return;
         }
     }
 
+    // Si no existe, crear nueva fila
     const fila = document.createElement('tr');
     fila.innerHTML = `
         <td>${nombre}</td>
         <td><input type="number" value="1" min="1" onchange="actualizarTotal(this)"></td>
         <td>${precio}</td>
         <td class="total">${precio}</td>
-        <td><button onclick="eliminarFila(this)">Eliminar</button></td>
+        <td><button type="button" onclick="eliminarFila(this)">Eliminar</button></td>
     `;
     tabla.appendChild(fila);
     recalcularSuma();
 }
 
+// Actualizar total de una fila
 function actualizarTotal(input) {
     const fila = input.closest('tr');
     const precio = parseInt(fila.cells[2].textContent);
-    fila.querySelector('.total').textContent = precio * parseInt(input.value);
+    const cantidad = parseInt(input.value) || 1;
+    fila.querySelector('.total').textContent = (precio * cantidad).toString();
     recalcularSuma();
 }
 
+// Eliminar fila
 function eliminarFila(btn) {
     btn.closest('tr').remove();
     recalcularSuma();
 }
 
+// Recalcular suma general
 function recalcularSuma() {
     let total = 0;
-    document.querySelectorAll('.total').forEach(t => total += parseInt(t.textContent));
+    document.querySelectorAll('.total').forEach(t => {
+        const v = parseInt(t.textContent);
+        if (!isNaN(v)) total += v;
+    });
+
     document.getElementById('suma').textContent = '$' + total.toLocaleString();
     document.getElementById('total-pago').textContent = total.toLocaleString();
     calcularCambio();
 }
 
-// Cambio en tiempo real, puede ser negativo
+// Cambio en tiempo real (puede ser negativo)
 function calcularCambio() {
-    const totalStr = document.getElementById('total-pago').textContent.replace(/\./g,'').replace('$','');
-    const pagaronStr = document.getElementById('pagaron').value.replace(/\./g,'');
+    const totalStr = document.getElementById('total-pago').textContent
+        .replace(/\./g, '')
+        .replace('$', '');
+    const pagaronStr = document.getElementById('pagaron').value.replace(/\./g, '');
 
     const total = parseInt(totalStr) || 0;
     const pagaron = parseInt(pagaronStr) || 0;
@@ -99,22 +115,27 @@ function seleccionarPago(medio) {
 // Finalizar pago
 function finalizarPago() {
     const tablaVentas = document.getElementById('tabla-ventas');
-    if(tablaVentas.rows.length === 0) {
+    if (tablaVentas.rows.length === 0) {
         alert('No hay productos en la venta.');
         return;
     }
 
     const productosVenta = [];
     let totalVenta = 0;
+
+    // Recorremos filas de la tabla
     for (let fila of tablaVentas.rows) {
         const nombre = fila.cells[0].textContent;
-        const cantidad = parseInt(fila.querySelector('input').value);
-        const total = parseInt(fila.cells[3].textContent.replace(/\./g,''));
+        const cantidad = parseInt(fila.querySelector('input').value) || 1;
+        const total = parseInt(fila.cells[3].textContent.replace(/\./g, '')) || 0;
+
         productosVenta.push({ nombre, cantidad, total });
         totalVenta += total;
     }
 
-    const pagaron = parseInt(document.getElementById('pagaron').value.replace(/\./g,'')) || 0;
+    const pagaron = parseInt(
+        (document.getElementById('pagaron').value || '0').replace(/\./g, '')
+    ) || 0;
 
     // Guardar en LocalStorage para registrarVenta.blade.php
     let ventas = JSON.parse(localStorage.getItem('ventasRegistradas')) || [];
@@ -123,11 +144,12 @@ function finalizarPago() {
         total: totalVenta,
         medioPago: pagoSeleccionado,
         pagaron: pagaron,
-        cambio: pagaron - totalVenta
+        cambio: pagaron - totalVenta,
+        fecha: new Date().toISOString().slice(0, 10) // YYYY-MM-DD
     });
     localStorage.setItem('ventasRegistradas', JSON.stringify(ventas));
 
-    alert('Venta realizada correctamente'); // No necesitamos redirigir
+    alert('Venta realizada correctamente');
 
     // Limpiar venta actual
     tablaVentas.innerHTML = '';

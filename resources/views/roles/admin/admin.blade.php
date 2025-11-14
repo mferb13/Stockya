@@ -1,26 +1,29 @@
-<!-- resources/views/admin.blade.php -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador - Stockya</title>
+    {{-- Icon --}}
+    <link rel="icon" href="{{ asset('assets/imagenes/logo.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('assets/css/estiloAdmin.css') }}">
 </head>
 <body>
     <div class="contenedor">
         <aside class="sidebar">
             <div class="logo">
-                <img src="{{ asset('assets/imagenes/logo.png') }}" alt="Stockya Logo">
-                <h2>STOCKYA</h2>
+                <a href="{{ route('principal') }}" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: inherit;">
+                    <img src="{{ asset('assets/imagenes/logo.png') }}" alt="Logo Stockya" style="height: 40px;">
+                    <span style="font-weight: bold; font-size: 1.5rem; color: white;">STOCKYA</span>
+                </a>
             </div>
             <nav>
-                <a href="#"><i>🏠</i> DashBoard</a>
+                <a href="{{ route('admin.panel') }}"><i>🏠</i> DashBoard</a>
                 <a href="#"><i>📦</i> Inventario</a>
                 <a href="#"><i>📝</i> Pedidos</a>
-                <a href="#"><i>⚠️</i> Alertas</a>
+                <a href="#"><i>⚠</i> Alertas</a>
                 <a href="{{ route('admin.registroVentas') }}"><i>🧾</i> Registro de Ventas</a>
-                <a href="#"><i>⚙️</i> Configuración</a>
+                <a href="#"><i>⚙</i> Configuración</a>
             </nav>
             <div class="perfil">
                 <img src="{{ asset('assets/imagenes/user.png') }}" alt="Admin">

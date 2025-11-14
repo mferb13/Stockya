@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - Stockya</title>
+    {{-- Icon --}}
+    <link rel="icon" href="{{ asset('assets/imagenes/logo.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('assets/css/estiloContactoServicio.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/estiloGeneral.css') }}">
     <script src="{{ asset('assets/js/menu.js') }}" defer></script>
 </head>
 <body>
     <header class="barra-navegacion">
         <div class="marca">
-            <img src="{{ asset('assets/imagenes/logo.png') }}" alt="Logo Stockya" class="logo-header">
-            <span>STOCKYA</span>
+            <a href="{{ route('principal') }}" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: inherit;">
+                <img src="{{ asset('assets/imagenes/logo.png') }}" alt="Logo Stockya">
+                <span>STOCKYA</span>
+            </a>
         </div>
 
         <nav class="enlaces">
@@ -40,7 +45,7 @@
     <main class="contenedor">
         <h1 class="titulo-seccion">Nuestros Servicios</h1>
         <p class="descripcion">
-        En Stockya ofrecemos soluciones para clientes comunes, mayoristas y negocios que buscan calidad y frescura.
+            En Stockya ofrecemos soluciones para clientes comunes, mayoristas y negocios que buscan calidad y frescura.
         </p>
 
         <div class="grid-servicios">
@@ -61,5 +66,7 @@
             </div>
         </div>
     </main>
+
+    @include('partials.footer')
 </body>
 </html>
